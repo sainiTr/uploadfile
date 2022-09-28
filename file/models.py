@@ -1,9 +1,10 @@
+from email.policy import default
 from django.db import models
 
 class  Uploadfile(models.Model):
-    title  = models.CharField(max_length=100,default="New Document")
-    file  = models.FileField(upload_to='media/ImageFiles')
-    thumb  = models.FileField(upload_to='media')
+    title  = models.CharField(max_length=100,default="New Document" ,blank=True)
+    file  = models.FileField(upload_to='ImageFiles')
+    img  = models.FileField(upload_to='ImageFiles')
 
     def __str__(self):
         return self.title
