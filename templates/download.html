@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 {% block title %}Downalod Files{% endblock title %}
 {% block body %}
+{% load humanize %}
+{% load static %}
 
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg bg-light shadow-lg">
     <div class="container-fluid">
       <a class="navbar-brand" >Tenali Ramkrishna</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,20 +34,20 @@
       </div>
     </div>
   </nav>
-<div class="row my-3">
+<div class=" row my-3 mx-0">
     {% if project %}
     {% for file  in project %}
     <div class="card mb-3 shadow-lg " style="max-width: 540px;margin:auto auto;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img style="height:200px;width: 100%;margin-left:-13px;" src="/media/{{file.img}}" class="img-fluid rounded-start" alt="...">
+            <img style="height:100%;width: 100%;margin-left:-13px;" src="/media/{{file.img}}" class="img-fluid rounded-start" alt="...">
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title" style="color:blue;">{{file.title}}</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <h5 class="card-title" style="color:blue;font-size:20px;">{{file.title|capfirst }}</h5>
+              <p style="height:50px;overflow:hidden;" class="card-text">{{file.desc|capfirst }}.</p>
                 <div>
-                    <p style="display:inline;width:max-content;" class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <p style="display:inline;width:max-content;" class="card-text"><small class="text-muted">{{file.date|naturaltime  }}</small></p>
                     <a style="margin:auto auto;"  class="btn btn-primary" href="/media/{{file.file}}" downalod>Downalod Zip</a>
                 </div>
                 
@@ -55,8 +57,9 @@
       </div>
       {% endfor %}
     {% else %}
-    {% load static %}
-        <img  style="width:350px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);" src="{% static 'nodata.gif'%}" alt="NO DATA FOUND">
+        <img  style="width:350px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);" src="{% static 'nodata.gif' %}" alt="NO DATA FOUND">
     {% endif %}
 </div>
+<a href="/logout" style="position:absolute;left:10px;bottom:5px;" class="btn btn-dark">Logout</a>
+
 {% endblock body %}

@@ -123,10 +123,14 @@
         <div class="wrapper">
             <form action="/" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-                <h6 style="color:gray;">Title</h6>
-                <input type="text" name="title"  class="form-control">
-                <h6 style="color:gray;" class="my-2">Thumbnail</h6>
-                <input type="file" name="image" class="form-control"  accept=".png,.jpg,.jpeg,.jfif,.gif,.*." >
+                <h6 style="color:gray;">Title:</h6>
+                <input type="text" name="title"  class="form-control" maxlength="60">
+
+                <h6 style="color:gray;" class="my-2">Thumbnail:</h6>
+                <input type="file" name="thumbnail" class="form-control"  accept=".png,.jpg,.jpeg,.jfif,.gif,.*." >
+
+                <h6 style="color:gray;" class="my-2">Description:</h6>
+                <textarea name="desc" id="" class="form-control" style="resize:none;" maxlength="100"></textarea>
                 <div class="upload my-2">
                     <input type="file" name="upload" class="form-control" accept=".zip,.rar,.7zip" >
                 </div>
@@ -138,9 +142,7 @@
         </div>
     </div>
 
-
-
-
+    <a href="/logout" style="position:absolute;left:10px;bottom:5px;" class="btn btn-dark">Logout</a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
