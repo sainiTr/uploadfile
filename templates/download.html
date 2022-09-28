@@ -37,10 +37,10 @@
 <div class=" row my-3 mx-0">
     {% if project %}
     {% for file  in project %}
-    <div class="card mb-3 shadow-lg " style="max-width: 540px;margin:auto auto;">
+    <div class="card mb-3 shadow-lg px-0 " style="max-width: 540px;margin:auto auto;">
         <div class="row g-0">
-          <div class="col-md-4">
-            <img style="height:100%;width: 100%;margin-left:-13px;" src="/media/{{file.img}}" class="img-fluid rounded-start" alt="...">
+          <div class="col-md-4 px-0">
+            <img style="height:100%;width:100%;" src="/media/{{file.img}}" class="img-fluid rounded-start" alt="...">
           </div>
           <div class="col-md-8">
             <div class="card-body">
